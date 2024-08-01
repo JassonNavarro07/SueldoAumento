@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SueldoAumento.MainPage"
+             xmlns:ViewModel="clr-namespace:SueldoAumento.ViewModels">
+
+    <ContentPage.BindingContext>
+        <ViewModel:AumentoViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            
+            <Label
+                Text="Aumento de Sueldo"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Entry Text="{Binding Sueldo}" 
+                    Placeholder="Ingresa su sueldo" 
+                    Keyboard="Numeric" />
+
+            <Label Text="{Binding St}" 
+                    FontSize="24" 
+                    HorizontalOptions="Center" />
+
+
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Calcular aumento" 
+                SemanticProperties.Hint="Counts the number of times you click"
+                Command="{Binding CalcularAumentoCommand}"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
